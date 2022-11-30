@@ -1,2 +1,18 @@
-- name: Setup .NET Core SDK
-  uses: actions/setup-dotnet@v3.0.3
+name: dotnet package
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: ['3.0', '3.1.x', '5.0.x' ]
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v3.0.3
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
