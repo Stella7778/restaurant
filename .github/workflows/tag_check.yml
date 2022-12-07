@@ -22,3 +22,5 @@ jobs:
         with:
           name: artifact
           path: /home/runner/work/restaurant/restaurant/bin/Release/net6.0/
+      - name: Upload Release Assets
+        uses: alexellis/upload-assets@0.4.0
